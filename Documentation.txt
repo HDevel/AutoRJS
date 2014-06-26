@@ -1,0 +1,18 @@
+﻿AutoRJS documentation (in work)
+
+
+-------------------------------------------------------- Module
+If you need something, use module system:
+
+arjs.extend({
+    name: 'parrent1.parrent2.modulename',
+    required: [
+        'folder1.folder2.filename'
+    ],
+    defines: function(){
+        //this code you can run call: arjsparrent1.parrent2.modulename();
+    },
+    run: function (){
+        //this code will run right after all required file will be loaded;
+    }
+});
