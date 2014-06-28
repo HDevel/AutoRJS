@@ -3,77 +3,58 @@
 <head>
     <title>AutoRJS</title>
     <meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <!--<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>-->
     <script type="text/javascript" src="lib/arjs/arjs.js"></script>
     <script>
-        var testX = 0;
-        arjs.init(
-                'canvas',
-                {
-                    img_01: 'media/img_01.png',
-                    BG: 'media/stackedclouds-1.jpg',
-                    cropS: 'media/testCropS.png',
-                    testOver: 'media/testOver.png',
-                    crop: 'media/testCrop.png'
-                },
-                function(){
-//                    arjs.canvas_ctx.drawImage(document.getElementById('test'),0,0);
-                    arjs.add({
-                        name:'BG',
-                        image:'BG',
-                        x: 0,
-                        y: 0
-                    });
-                    var test = 100
-                    for(var i = 0; i < test; i++){
-                        arjs.add({
-                            name:'crop' + i,
-                            image:'crop',
-                            x: Math.round(Math.random() * arjs.canvas.width),
-                            y: Math.round(Math.random() * arjs.canvas.height),
-                            onclick: function (){
-                                console.log(this.name);
 
-//                                for(var i = 0; i < 50; i++){
-//                                    arjs.move('crop' + i,{
-//                                        x:Math.round(Math.random() * arjs.canvas.width),
-//                                        y:Math.round(Math.random() * arjs.canvas.height)
-//                                    });
-//                                }
-                            },
-                            crop: [0,Math.round(Math.random() * 2) * 100,100,100]
-                        });
-                    }
-//                    for(var i = 0; i < 50; i++){
-//                        arjs.add({
-//                            name:'cropS' + i,
-//                            image:'cropS',
-//                            x: Math.round(Math.random() * 500),
-//                            y: Math.round(Math.random() * 500),
-////                            onclick: function (){console.log(this.name)},
-//                            crop: [0,Math.round(Math.random() * 2) * 10,10,10]
-//                        });
-//                    }
-                    setInterval(function(){
-                        for(var i = 0; i < test; i++){
-                            arjs.move('crop' + i,{
-                                x:Math.round(Math.random() * arjs.canvas.width),
-                                y:Math.round(Math.random() * arjs.canvas.height)
-                            });
+        arjs.ready(function(){
+            arjs.preload.image({
+                'testOver':'media/testOver.png',
+                'img_01':'media/img_01.png',
+                'testCrop':'media/testCrop.png'
+            });
+            arjs.preload.progress(
+                    function(info)
+                    {
+                        if(info == 100){
+                            runGame();
                         }
-//                        for(var i = 0; i < 100; i++){
-//                            arjs.move('cropS' + i,{
-//                                x:Math.round(Math.random() * 900),
-//                                y:Math.round(Math.random() * 400)
-//                            });
-//                        }
-                    },1000);
-                }
-        );
+                    }
+            )
+            arjs.init({
+                canvas:'canvas'
+            });
+
+        })
+        function runGame(){
+
+
+            for(var i = 0; i < 10; i++){
+                arjs.entity.add({
+                    name:'crop' + i,
+                    image:'testOver',
+                    x: Math.round(Math.random() * arjs.canvas.width),
+                    y: Math.round(Math.random() * arjs.canvas.height),
+                    onclick: function (){
+                        console.log(this.name);
+                    },
+                    crop: [0,Math.round(Math.random() * 2) * 100,100,100]
+                });
+            }
+        }
     </script>
 </head>
 <body style="padding: 0; margin: 0;">
 <img id="test" src="media/stackedclouds-1_.png" style="display: none;">
-<canvas id="canvas" style="display: block;" width="1000" height="500"></canvas>
+<style>
+    canvas{
+        position: absolute;
+        top:0px;
+        left:0px;
+        opacity: 0.5;
+        z-index: 10;
+    }
+</style>
+<canvas id="canvas" style="display: block; opacity: 1; z-index: 5;" width="1000" height="500"></canvas>
 </body>
 </html>
