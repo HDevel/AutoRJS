@@ -35,9 +35,9 @@
                     image:'testOver',
                     x: Math.round(Math.random() * arjs.canvas.width),
                     y: Math.round(Math.random() * arjs.canvas.height),
-//                    onclick: function (){
-//                        console.log(this.name);
-//                    },
+                    onclick: function (){
+                        console.log(this.name);
+                    },
                     crop: [0,Math.round(Math.random() * 2) * 100,100,100]
                 });
             }
@@ -46,6 +46,15 @@
 </head>
 <body style="padding: 0; margin: 0;">
 <img id="test" src="media/stackedclouds-1_.png" style="display: none;">
-<canvas id="canvas" style="display: block;" width="1000" height="500"></canvas>
+<style>
+    canvas{
+        position: absolute;
+        top:0px;
+        left:0px;
+        opacity: 0.5;
+        z-index: 10;
+    }
+</style>
+<canvas id="canvas" style="display: block; opacity: 1; z-index: 5;" width="1000" height="500"></canvas>
 </body>
 </html>
