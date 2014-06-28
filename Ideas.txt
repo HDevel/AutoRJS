@@ -1,0 +1,15 @@
+﻿-----------------------------------------------debug shapes map
+
+                //
+                var debugSID = 'arjs_debugShapes';
+                if(document.getElementById(debugSID) == undefined){
+                }
+                if(arjs.debugShapes == false){
+                    arjs.debugShapes = true;
+                    document.getElementById(debugSID).innerHTML = '';
+                }
+                var div = document.createElement('div');
+                div.setAttribute('style','top:' + shapeX + 'px; left:' + shapeY + 'px; width:' + shapeWidth + 'px; height:' + shapeHeight + 'px;')
+                //enable to see Input canvas on screen;
+                document.getElementById(debugSID).appendChild(div);
+                //
