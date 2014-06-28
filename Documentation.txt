@@ -5,14 +5,14 @@
 If you need something, use module system:
 
 arjs.extend({
-    name: 'parrent1.parrent2.modulename',
     required: [
-        'folder1.folder2.filename'
+        'folder1.folder2.filename' // it will be the name for module, example : arjs.folder1.folder2.filename()
     ],
     defines: function(){
-        //this code you can run call: arjsparrent1.parrent2.modulename();
+        //this code you can run call: arjs.folder1.folder2.filename();
     },
     run: function (){
         //this code will run right after all required file will be loaded;
     }
 });
+
