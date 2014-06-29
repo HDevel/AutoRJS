@@ -5,12 +5,17 @@
     <meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui">
     <!--<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>-->
     <script type="text/javascript" src="lib/arjs/arjs.js"></script>
+    <script type="text/javascript" src="lib/plugins/animation.js"></script>
     <script>
 
         arjs.ready(function(){
             arjs.preload.image({
                 'testOver':'media/testOver.png',
                 'img_01':'media/img_01.png',
+                't':'media/t.png',
+                'ts':'media/ts.png',
+                'F1':'media/F1.png',
+                'animation':'media/animation.png',
                 'testCrop':'media/testCrop.png'
             });
             arjs.preload.progress(
@@ -27,22 +32,18 @@
 
         })
         function runGame(){
-
-
-            for(var i = 0; i < 10; i++){
-                arjs.entity.add({
-                    name:'crop' + i,
-                    image:'testCrop',
-                    x: 50 * i,
-//                    x: Math.round(Math.random() * arjs.canvas.width),
-                    y: 50 * i,
-//                    y: Math.round(Math.random() * arjs.canvas.height),
-                    onclick: function (){
-                        console.log(this.name);
-                    },
-                    crop: [0,Math.round(Math.random() * 2) * 100,100,100]
-                });
-            }
+            arjs.entity.add({
+                name:'anim',
+                image:'animation',
+                x: 100,
+                y: 100,
+                width: 128,
+                height: 128,
+                animation:{
+                    speed: 30,
+                    frames: '0,1,2,3,4,5'
+                }
+            });
         }
     </script>
 </head>
