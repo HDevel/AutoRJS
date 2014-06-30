@@ -75,7 +75,7 @@
 //                }
 //            });
             setInterval(function(){
-                for(var i = 0; i < 5; i++){
+                for(var i = 0; i < 30; i++){
                     Z++;
                     var speed = 100;
                     arjs.entity.add({
@@ -88,16 +88,16 @@
                         y: mouseY,
 //                        y: arjs.canvas.height / 2,
                         width: 30,
-                        scale: Math.random() * 0.2,
+                        scale: Math.random() * 0.1,
                         height: 30
                         ,
                         gravity:{
-                            speed:[(Math.random() * speed)- (speed/2),(Math.random() * speed) - (speed/2)],
+                            speed:[Math.round((Math.random() * speed) - (speed/2)),(Math.random() * speed) - (speed/2)],
                             lifeTime:Math.random() * 5000
                         }
                     });
                 }
-            },1)
+            },30)
         }
     </script>
 </head>
