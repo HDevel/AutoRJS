@@ -5,6 +5,7 @@
 If you need something, use module system:
 
 arjs.extend({
+    name:'mod1.mod2.name'
     required: [
         'folder1.folder2.filename' // it will be the name for module, example : arjs.folder1.folder2.filename()
     ],
