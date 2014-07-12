@@ -8,10 +8,6 @@
     <script type="text/javascript" src="lib/plugins/animation.js"></script>
     <script type="text/javascript" src="lib/plugins/gravity.js"></script>
     <script>
-        var Z = 0;
-        var mouseX = 500;
-        var mouseY = 200;
-
         arjs.ready(function(){
             arjs.preload.image({
                 'testOver':'media/testOver.png',
@@ -32,115 +28,38 @@
                     }
             )
             arjs.init({
-                canvas:'canvas'
+                container:'game'
             });
 
         })
         function runGame(){
-//            arjs.entity.add({
-//                name:'anim0',
-//                image:'animation',
-//                x: 0,
-//                y: 100,
-//                width: 128,
-//                height: 128,
-//                animation:{
-//                    speed: 1,
-//                    frames: '1-10-0'
-//                }
-//            });
-//            arjs.entity.add({
-//                name:'anim1',
-//                image:'animation',
-//                x: 100,
-//                y: 100,
-//                width: 128,
-//                height: 128,
-//                animation:{
-//                    speed: 1,
-//                    frames: '0,1,2,3,4,5'
-//                },
-//                opacity:0.1
-//            });
-//            arjs.entity.add({
-//                name:'anim2_',
-//                image:'animation',
-//                x: 200,
-//                y: 100,
-//                width: 128,
-//                height: 128,
-//                animation:{
-//                    speed: 1,
-//                    frames: '1-10-0'
-//                }
-//            });
-//            setInterval(function(){
-                for(var i = 0; i < 1000; i++){
-                    Z++;
-                    var speed = 100;
-                    arjs.entity.add({
-                        name:'anim' + Z,
-                        image:'img_01',
-                        x: Math.round(Math.random() * 1440),
-//                        x: mouseX,
-//                        x: arjs.canvas.width / 2,
-                        y:  Math.round(Math.random() * 450),
-//                        y: mouseY,
-//                        y: arjs.canvas.height / 2,
-//                width: 128,
-//                height: 128,
-//                animation:{
-//                    speed: 40,
-//                    frames: '10-0'
-//                },
-//                        scale: Math.random() * 0.1
-//                        ,
-                        gravity:{
-                            speed:[Math.round((Math.random() * speed) - (speed/2)),(Math.random() * speed) - (speed/2)],
-                            lifeTime:10000000000
-                        }
-                    });
-                }
-
-//            arjs.entity.add({
-//                name:'anim_1',
-//                image:'F1',
-//                x: Math.random() * 1000,
-//                y:  Math.random() * 450,
-////                scale: Math.random() * 0.5,
-//                gravity:{
-//                    speed:[Math.round((Math.random() * speed) - (speed/2)),(Math.random() * speed) - (speed/2)],
-//                    lifeTime:10000000000
-//                }
-//            });
-//            },30)
+            for(var i = 0; i < 10; i++){
+                var speed = 100;
+                arjs.entity.add({
+                    name:'anim' + i,
+                    image:'img_01',
+                    x: Math.round(Math.random() * 1440),
+                    y:  Math.round(Math.random() * 450),
+                    canvas:  i,
+                    gravity:{
+                        speed:[Math.round((Math.random() * speed) - (speed/2)),(Math.random() * speed) - (speed/2)],
+                        lifeTime:10000000000
+                    }
+                });
+            }
         }
     </script>
 </head>
 <body style="padding: 0; margin: 0;">
-<img id="test" src="media/stackedclouds-1_.png" style="display: none;">
 <style>
-    canvas{
+    #game{
         position: absolute;
         top:0px;
         left:0px;
-        opacity: 0.5;
-        z-index: 10;
-
-    }
-    #debugShapes{
-        position: absolute;
-        width: 1000px;
-        height: 500px;
-        z-index: 10;
-        top:0px;
-        left:0px;
-    }
-    #debugShapes > div{
-        position: absolute;
-        box-shadow: 0px 0px 0px 1px #f0f inset;
+        width:100%;
+        height:100%;
     }
 </style>
-<canvas id="canvas" style="display: block; opacity: 1; z-index: 5;" width="1000" height="500"></canvas>
+<div id="game"></div>
 </body>
 </html>
