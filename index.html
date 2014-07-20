@@ -8,7 +8,8 @@
     <script>
         arjs.ready(function(){
             arjs.entity.image.preload({
-                '300': 'media/300.png'
+                '300': 'media/300.png',
+                'F1': 'media/F1.png'
             })
             arjs.preload.progress(function(i){
                 if(i == 100){
@@ -19,7 +20,7 @@
                     })
                     arjs.entity.image.add({
                         name: 'testString',
-                        image: '300',
+                        image: 'F1',
                         scale: [0.2,0.5]
 
                     })
