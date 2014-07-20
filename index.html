@@ -5,77 +5,16 @@
     <meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui">
     <!--<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>-->
     <script type="text/javascript" src="lib/arjs/arjs.js"></script>
-    <script type="text/javascript" src="lib/plugins/animation.js"></script>
-    <script type="text/javascript" src="lib/plugins/gravity.js"></script>
-    <script type="text/javascript" src="lib/plugins/stroke.js"></script>
     <script>
         arjs.ready(function(){
-            arjs.preload.image({
-                'testOver':'media/testOver.png',
-                'img_01':'media/img_01.png',
-                't':'media/t.png',
-                'ts':'media/ts.png',
-                'F1':'media/F1.png',
-                'part':'media/part.png',
-                'animation':'media/animation.png',
-//                '10':'media/10.png',
-                '1':'media/1.png',
-                '300':'media/300.png',
-                'testCrop':'media/testCrop.png'
-            });
-            arjs.preload.progress(
-                    function(info)
-                    {
-                        if(info == 100){
-                            runGame();
-                        }
-                    }
-            )
+            arjs.entity.image.preload({
+                '300': 'media/300.png'
+            })
             arjs.init({
                 container:'game'
             });
 
         })
-        function runGame(){
-            for(var i = 0; i < 10; i++){
-                var speed = 100;
-                arjs.entity.add({
-                    name:'anim' + i
-                    ,image:'1'
-                    ,x: Math.round(Math.random() * 1440)
-                    ,y:  Math.round(Math.random() * 450)
-                    ,canvas:  i
-//                    ,opacity:0.5
-                    ,stroke:{size:2}
-//                    ,gravity:{
-//                        speed:[Math.round((Math.random() * speed) - (speed/2)),(Math.random() * speed) - (speed/2)],
-//                        lifeTime:10000000000
-//                    }
-                });
-            }
-            for(var i = 0; i < 10; i++){
-                var speed = 100;
-                arjs.entity.add({
-                    name:'img' + i
-                    ,image:'img_01'
-                    ,x: Math.round(Math.random() * 1440)
-                    ,y:  Math.round(Math.random() * 450)
-//                    ,canvas:  i
-//                    ,opacity:0.5
-                    ,stroke:{size:2}
-//                    ,gravity:{
-//                        speed:[Math.round((Math.random() * speed) - (speed/2)),(Math.random() * speed) - (speed/2)],
-//                        lifeTime:10000000000
-//                    }
-                });
-            }
-            setInterval(function(){
-                arjs.entity.change('img0', {
-                    x: Math.round(Math.random() * 1440)
-                    ,y:  Math.round(Math.random() * 450)
-                })
-            },100)
-        }
     </script>
 </head>
 <body style="padding: 0; margin: 0;">
