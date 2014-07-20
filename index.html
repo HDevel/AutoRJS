@@ -10,20 +10,43 @@
             arjs.entity.image.preload({
                 '300': 'media/300.png',
                 '10': 'media/10.png',
-                'F1': 'media/F1.png'
+                'F1': 'media/F1.png',
+                'PC_01': 'media/PC_01.png',
+                'PC_02': 'media/PC_02.png',
+                'PC_03': 'media/PC_03.png',
+                'PC_04': 'media/PC_04.png'
             })
             arjs.preload.progress(function(i){
                 if(i == 100){
                     arjs.entity.image.add({
-                        name: '300',
-                        image: '300'
-
+                        name: 'PC_01'
+                        ,image: 'PC_01'
+                        ,x: 50
+                        ,y: 50
                     })
                     arjs.entity.image.add({
-                        name: 'testString',
-                        image: 'F1',
-                        scale: [0.2,0.5]
-
+                        name: 'PC_02'
+                        ,image: 'PC_02'
+                        ,x: 11
+                        ,y: 11
+                        ,parent: 'PC_01'
+                    })
+                    arjs.entity.image.add({
+                        name: 'PC_03'
+                        ,image: 'PC_03'
+                        ,x: 12
+                        ,y: 12
+                        ,parent: 'PC_02'
+//                        ,opacity:0.5
+                        ,scale:0.5
+                    })
+                    arjs.entity.image.add({
+                        name: 'PC_04'
+                        ,image: 'PC_04'
+                        ,x: 13
+                        ,y: 13
+                        ,parent: 'PC_03'
+//                        ,opacity:0.5
                     })
                 }
             });
