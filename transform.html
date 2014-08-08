@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AutoRJS</title>
+    <meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui">
+    <!--<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>-->
+    <script type="text/javascript" src="lib/arjs/arjs.js"></script>
+    <script>
+        arjs.ready(function(){
+            arjs.entity.image.preload({
+                '300': 'media/300.png',
+                '10': 'media/10.png',
+                'F1': 'media/F1.png',
+                'PC_01': 'media/PC_01.png',
+                'PC_02': 'media/PC_02.png',
+                'PC_03': 'media/PC_03.png',
+                'PC_04': 'media/PC_04.png'
+            });
+            arjs.preload.progress(function(i){
+                if(i == 100){
+                    arjs.entity.image.add({
+                        name: 'PC_0'
+                        ,image: 'PC_01'
+                        ,x: 100
+                        ,y: 100
+                        ,scale: 0.95
+                    });
+                    for(var i = 1; i < 25; i++){
+                        var obj = {
+                            name: 'PC_' + i
+                            ,image: 'PC_0' + Math.ceil(Math.random() * 4)
+                            ,x: Math.random() * 100
+                            ,y: 0
+                            ,scale: 0.95
+                            ,parent:'PC_' + (i - 1)
+                        }
+                        stertChange(obj.name);
+                        arjs.entity.image.add(obj);
+                    }
+                    function stertChange(name){
+                        function FN(t){
+                            arjs.entity.change(name,{rotate:arjs.entity.list.all[name].rotate + (0.05 * t)})
+                        }
+                        arjs.system.requestAnimationFrame(FN,150);
+                    }
+
+                }
+            });
+            arjs.init({
+                container:'game'
+            });
+
+        })
+        var deg1 = 0;
+        var deg2 = 0;
+        var deg3 = 0;
+        var deg4 = 0;
+    </script>
+</head>
+<body style="padding: 0; margin: 0;">
+<style>
+    #game{
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:100%;
+        height:100%;
+    }
+</style>
+<div id="game"></div>
+</body>
+</html>

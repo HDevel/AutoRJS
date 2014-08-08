@@ -15,52 +15,10 @@
                 'PC_02': 'media/PC_02.png',
                 'PC_03': 'media/PC_03.png',
                 'PC_04': 'media/PC_04.png'
-            })
+            });
             arjs.preload.progress(function(i){
                 if(i == 100){
-                    arjs.entity.image.add({
-                        name: 'PC_01'
-                        ,image: 'PC_01'
-                        ,x: 100
-                        ,y: 100
-                        ,rotate:30
-                    })
-                    arjs.entity.image.add({
-                        name: 'PC_02'
-                        ,image: 'PC_02'
-                        ,x: 50
-                        ,y: 0
-                        ,parent: 'PC_01'
-                        ,scale:0.5
-                        ,canvas:1
-                    })
-                    arjs.entity.image.add({
-                        name: 'PC_03'
-                        ,image: 'PC_03'
-                        ,x: 50
-                        ,y: 0
-                        ,parent: 'PC_02'
-                        ,scale:0.5
-                    })
-                    arjs.entity.image.add({
-                        name: 'PC_04'
-                        ,image: 'PC_04'
-                        ,x: 50
-                        ,y: 0
-                        ,parent: 'PC_03'
-                        ,scale:0.5
-                    });
-
-//                        setInterval(function(){
-//                            deg1 += 0.1 * 10;
-//                            deg2 += 0.08 * 15;
-//                            deg3 += 0.06 * 20;
-//                            deg4 += 0.04 * 25;
-//                            arjs.entity.change('PC_01',{rotate:deg1})
-//                            arjs.entity.change('PC_02',{rotate:deg2})
-//                            arjs.entity.change('PC_03',{rotate:deg3})
-//                            arjs.entity.change('PC_04',{rotate:deg4})
-//                        },30)
+                    alert('load done');
                 }
             });
             arjs.init({
@@ -68,10 +26,6 @@
             });
 
         })
-        var deg1 = 0;
-        var deg2 = 0;
-        var deg3 = 0;
-        var deg4 = 0;
     </script>
 </head>
 <body style="padding: 0; margin: 0;">
