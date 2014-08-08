@@ -39,7 +39,7 @@
                     }
                     function stertChange(name){
                         function FN(t){
-                            arjs.entity.change(name,{rotate:arjs.entity.list.all[name].rotate + (0.05 * t)})
+                            arjs.entity.change(name,{rotate:arjs.entity.list.all[name].rotate + (Math.random() * t)})
                         }
                         arjs.system.requestAnimationFrame(FN,150);
                     }
@@ -49,12 +49,7 @@
             arjs.init({
                 container:'game'
             });
-
-        })
-        var deg1 = 0;
-        var deg2 = 0;
-        var deg3 = 0;
-        var deg4 = 0;
+        });
     </script>
 </head>
 <body style="padding: 0; margin: 0;">
