@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AutoRJS</title>
+</head>
+<body style="padding: 0; margin: 0;">
+<style>
+
+</style>
+<canvas id="canvas_01" width="500" height="500"></canvas>
+<canvas id="canvas_02" width="100" height="100"></canvas>
+
+<img src="media/TR_01.png" id="TR_01">
+<img src="media/TR_02.png" id="TR_02">
+<img src="media/TR_03.png" id="TR_03">
+<img src="media/TR_04.png" id="TR_04">
+<img src="media/TR_05.png" id="TR_05">
+<img src="media/TR_06.png" id="TR_06">
+
+
+<script>
+    var canvas_01 = document.getElementById('canvas_01');
+    var canvas_02 = document.getElementById('canvas_02');
+    var canvas_01_ctx = canvas_01.getContext('2d');
+    var canvas_02_ctx = canvas_02.getContext('2d');
+
+    var img_01 = document.getElementById('TR_01');
+    var img_02 = document.getElementById('TR_02');
+    var img_03 = document.getElementById('TR_03');
+    var img_04 = document.getElementById('TR_04');
+    var img_05 = document.getElementById('TR_05');
+    var img_06 = document.getElementById('TR_06');
+
+    setTimeout(function(){
+        canvas_01_ctx.drawImage(img_02,115,115);
+        canvas_01_ctx.drawImage(img_05,185,185);
+//            canvas_01_ctx.drawImage(img_01,150,150);
+        canvas_01_ctx.drawImage(img_03,185,115);
+        canvas_01_ctx.drawImage(img_04,115,185);
+
+
+        canvas_02_ctx.drawImage(img_01,0,0);
+        canvas_02_ctx.globalCompositeOperation = "source-atop";
+        canvas_02_ctx.drawImage(img_03,35,-35);
+        canvas_02_ctx.drawImage(img_04,-35,35);
+        canvas_01_ctx.drawImage(canvas_02,150,150);
+
+    },500);
+</script>
+</body>
+</html>
