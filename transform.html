@@ -28,7 +28,7 @@
 
                         }
                     });
-                    for(var i = 1; i < 25; i++){
+                    for(var i = 1; i < 50; i++){
                         var obj = {
                             name: 'PC_' + i
                             ,image: 'PC_0' + Math.ceil(Math.random() * 4)
@@ -44,7 +44,7 @@
                         function FN(t){
                             arjs.entity.change(name,{rotate:arjs.entity.list.all[name].rotate + (Math.random() * t)})
                         }
-                        arjs.system.requestAnimationFrame(FN,150);
+                        arjs.system.requestAnimationFrame(FN,50);
                     }
 
                 }
@@ -65,6 +65,7 @@
         height:100%;
     }
 </style>
+<div id="debug"></div>
 <div id="game"></div>
 </body>
 </html>
